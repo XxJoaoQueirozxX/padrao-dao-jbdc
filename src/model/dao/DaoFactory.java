@@ -10,7 +10,7 @@ import java.sql.Connection;
 
 public class DaoFactory {
 
-    public static SellerDaoJDBC createSellerDAO(Connection con){
+    public static DAO<Seller> createSellerDAO(Connection con){
         return new SellerDaoJDBC(con);
     }
 

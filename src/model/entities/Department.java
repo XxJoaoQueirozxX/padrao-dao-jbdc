@@ -54,4 +54,8 @@ public class Department implements Serializable {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public Object[] toArray(){
+        return new Object[]{this.id, this.name};
+    }
 }
