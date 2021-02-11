@@ -6,6 +6,7 @@ import model.dao.DaoFactory;
 import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
+import util.Input;
 import util.Show;
 
 import java.sql.Connection;
@@ -59,6 +60,11 @@ public class Program {
         sellerDAO.update(seller);
         System.out.println("Update completed");
 
+
+        System.out.println("=== TEST 6: seller delete");
+        Integer id = Input.i("Enter id for delete test: ");
+        sellerDAO.deleteById(id);
+        System.out.println("Delete completed");
 
     }
 }
