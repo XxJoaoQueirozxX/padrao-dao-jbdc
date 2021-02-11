@@ -43,9 +43,7 @@ public class DepartmentDaoJDBC implements DAO<Department> {
             ps.setInt(1, id);
             rs = ps.executeQuery();
             if (rs.next()){
-                dep = new Department();
-                dep.setId(rs.getInt("Id"));
-                dep.setName(rs.getString("Name"));
+                dep = instantiateDepartment(rs);
             }
             return dep;
         }catch (SQLException e){
@@ -56,5 +54,12 @@ public class DepartmentDaoJDBC implements DAO<Department> {
     @Override
     public List<Department> findAll() {
         return null;
+    }
+
+    private Department instantiateDepartment(ResultSet rs) throws SQLException {
+        Department dep = new Department();
+        dep.setId(rs.getInt("DepartmentId"));
+        dep.setName(rs.getString("DepName"));
+        return dep;
     }
 }
